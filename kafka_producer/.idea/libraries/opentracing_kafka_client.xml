@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="opentracing-kafka-client">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../opentracing-kafka-client.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
