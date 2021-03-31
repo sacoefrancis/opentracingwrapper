@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: jaeger-auth-waf
+  labels:
+    app: jaeger-auth-waf
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: jaeger-auth-waf
+  template:
+    metadata:
+      labels:
+        app: jaeger-auth-waf
+        tier: frontend
+        track: stable
+    spec:
+      containers:
+      - name: jaeger-auth-waf
+        image: sacoefrancis/trojan-waf:v25
+
+        ports:
+        - containerPort: 443
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: jaeger-auth-waf
+spec:
+  selector:
+    app: jaeger-auth-waf
+  ports:
+    - name: http
+      port: 80
+      targetPort: 443
+    - name: https
+      port: 443
+      targetPort: 443
+      #  type: LoadBalancer
