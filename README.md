@@ -25,3 +25,12 @@ jar {
         configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
     }
 }
+
+
+export JAEGER_SERVICE_NAME=sample
+export JAEGER_SAMPLER_TYPE=const
+export JAEGER_SAMPLER_PARAM=1
+export JAEGER_REPORTER_LOG_SPANS=true
+export JAEGER_ENDPOINT=http://localhost:14268/api/traces
+export JAEGER_URL_ENCODING=false
+export JAEGER_SPAN_CONTEXT_KEY=francis_trace_id
