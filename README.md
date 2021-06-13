@@ -1,5 +1,11 @@
 # opentracingwrapper
 
+
+java -javaagent:/path/to/elastic-apm-agent-<version>.jar -Delastic.apm.service_name=my-cool-service -Delastic.apm.application_packages=org.example,org.another.example -Delastic.apm.server_url=http://localhost:8200 -jar my-application.jar
+
+
+
+
 plugins {
     id 'java'
 }
